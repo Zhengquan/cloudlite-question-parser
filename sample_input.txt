@@ -1,0 +1,31 @@
+===
+难度：简单
+题型：单选
+描述：Question 1
+选项：
+A：Answer_A
+B：Answer_B
+C：Answer_C
+D：Answer_D
+正确答案：D
+答案解析：bla bla bla
+
+===
+难度：简单
+题型：判断
+描述：Question 2
+正确答案：正确
+答案解析：
+
+===
+难度：简单
+题型：多选
+描述：Question C
+选项：
+A：Anser_A
+B：Anser_B
+C：Anser_C
+D：Anser_D
+E：Anser_E
+正确答案：A，B，C，D，E
+答案解析：blablabla
