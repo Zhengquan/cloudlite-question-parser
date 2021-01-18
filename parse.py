@@ -66,6 +66,7 @@ def print_result():
             question["q_answers"],
             "\t",
             question["q_answer_explanation"],
+            sep=''
         )
 
 def build_options(options):
@@ -102,13 +103,13 @@ def process_line(line, parsed_question):
 
 
 def process_answer_options(line, parsed_question):
-    captured_group = re.search("^[A-Z|a-z][:|：](.+)", line).group(1)
+    captured_group = re.search("^[A-Z|a-z][:|：](.+)", line).group(1).strip()
     parsed_question["q_options"].append(captured_group)
 
 
 def process_answers(line, parsed_question):
     parsed_line = line.replace('，', ',')
-    correct_answer = re.search("^正确答案[：|:](.+)", parsed_line).group(1).upper()
+    correct_answer = re.search("^正确答案[：|:](.+)", parsed_line).group(1).upper().strip()
     if parsed_question["q_type"] == 3:
         answer_code_dict = {"正确": 1, "错误": 0}
         correct_answer = answer_code_dict[correct_answer]
@@ -120,11 +121,11 @@ def process_answer_explanation(line, parsed_question):
     if anser_exp is None:
         parsed_question["q_answer_explanation"] = ""
     else:
-        parsed_question["q_answer_explanation"] = anser_exp.group(1)
+        parsed_question["q_answer_explanation"] = anser_exp.group(1).strip()
 
 
 def process_quesiton_desc(line, parsed_question):
-    captured_group = re.search("^描述[：|:](.+)", line).group(1)
+    captured_group = re.search("^描述[：|:](.+)", line).group(1).strip()
     parsed_question["q_desc"] = captured_group
 
 
